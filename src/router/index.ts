@@ -13,6 +13,26 @@ const router = createRouter({
       path: '/random',
       name: 'random',
       component: () => import('../views/RandomView.vue')
+    },
+    {
+      path: '/name',
+      name: 'name',
+      component: () => import('../views/NameView.vue')
+    },
+    {
+      path: '/ingredient',
+      name: 'ingredient',
+      component: () => import('../views/IngredientView.vue')
+    },
+    {
+      path: '/category',
+      name: 'category',
+      component: () => import('../views/CategoryView.vue')
+    },
+    {
+      path: '/zone',
+      name: 'zone',
+      component: () => import('../views/ZoneView.vue')
     }
   ]
 })
