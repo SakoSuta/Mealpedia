@@ -7,17 +7,19 @@ export default {
         .then(response => response.json())
         .then(json => {
           console.log(json),
+          this.NameName = [json.meals[0].strMeal],
           this.NameImage = json.meals[0].strMealThumb
         })
         .catch(error => console.error(error));
-    },
+    }
+  },
     data() {
       return {
         SearchName: "",
-        NameImage: ""
+        NameName: [],
+        NameImage: []
       }
     }
-  }
 }
 </script>
 
@@ -27,6 +29,8 @@ export default {
     <form>
       <input type="text" v-model="SearchName" @input="Searching" placeholder="Search by name of the meal">
     </form>
+    <p v-for="NName in NameName" v-bind:src=NName>{{ NName }}</p>
+    <!-- <img v-for="NImage in NameImage" v-bind:src=NImage alt="Image"> -->
   </div>
 </template>
 
