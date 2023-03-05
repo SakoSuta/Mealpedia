@@ -22,26 +22,47 @@ export default {
 </script>
 
 <template>
-  <div class="random">
+  <div class="name">
     <h1>Meal by Name</h1>
     <form>
       <input type="text" v-model="SearchName" @input="Searching" placeholder="Search by name of the meal">
     </form>
     <div class="gridd">
       <div v-for="BN in ByName" v-if="SearchName" class="result">
-        <div class="Image"><img v-bind:src=BN.strMealThumb alt="Image"></div>
+        <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
         <p>{{ BN.strMeal }}</p>
       </div>
     </div>
-    
-    <!-- <img v-for="NImage in NameImage" v-bind:src=NImage alt="Image"> -->
   </div>
 </template>
 
 <style>
 @media (min-width: 1024px) {
-  .random {
+  .name {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1{
+    text-align: center;
+  }  
+
+  form{
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+  }
+
+  form input{
+    width: 80%;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px var(--color-text) solid;
+    border-radius: 10px;
+    color: var(--color-text);
   }
 
   .gridd {
@@ -57,7 +78,7 @@ export default {
     margin: 20px 0px;
   }
 
-  .random .result div.Image img{
+  .name .result div.ImageN img{
     width: 100px;
   }
 }
