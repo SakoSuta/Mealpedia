@@ -6,12 +6,8 @@ export default {
       fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.SearchName}`)
         .then(response => response.json())
         .then(json => {
-          console.log(json);
-          for (let i = 0; i < json.meals.length; i++) {
-            this.NameName = json.meals[i].strMeal
-            console.log(this.NameName)
-            }
-          this.NameImage = json.meals[0].strMealThumb
+          console.log(json.meals);
+          this.ByName = json.meals
         })
         .catch(error => console.error(error));
     }
@@ -19,8 +15,7 @@ export default {
     data() {
       return {
         SearchName: "",
-        NameName: [],
-        NameImage: []
+        ByName: []
       }
     }
 }
@@ -32,7 +27,13 @@ export default {
     <form>
       <input type="text" v-model="SearchName" @input="Searching" placeholder="Search by name of the meal">
     </form>
-    <p>{{ NameName }}</p>
+    <div class="gridd">
+      <div v-for="BN in ByName" v-if="SearchName" class="result">
+        <div class="Image"><img v-bind:src=BN.strMealThumb alt="Image"></div>
+        <p>{{ BN.strMeal }}</p>
+      </div>
+    </div>
+    
     <!-- <img v-for="NImage in NameImage" v-bind:src=NImage alt="Image"> -->
   </div>
 </template>
@@ -41,8 +42,23 @@ export default {
 @media (min-width: 1024px) {
   .random {
     min-height: 100vh;
+  }
+
+  .gridd {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .result{
+    width: 150px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: 20px 0px;
+  }
+
+  .random .result div.Image img{
+    width: 100px;
   }
 }
 </style>
