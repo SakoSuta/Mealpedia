@@ -31,7 +31,7 @@ export default {
     <div class="gridd">
      
       <div v-for="BN in ByName" v-if="SearchName" class="result">
-        <RouterLink :to="{ path: '/ID/' + BN.idMeal }">
+        <RouterLink :to="{ path: '/ID/' + BN.idMeal }" class="ResCenter">
           <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
           <p>{{ BN.strMeal }}</p>
         </RouterLink>
@@ -81,6 +81,12 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 20px 0px;
+  }
+
+  .ResCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .name .result div.ImageN img{

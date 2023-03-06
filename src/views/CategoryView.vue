@@ -29,7 +29,7 @@ export default {
     </form>
     <div class="gridd">
       <div v-for="BC in ByCategory" v-if="SearchCategory" class="result">
-        <RouterLink :to="{ path: '/ID/' + BC.idMeal }">
+        <RouterLink :to="{ path: '/ID/' + BC.idMeal }" class="ResCenter">
           <div class="ImageN"><img v-bind:src=BC.strMealThumb alt="Image"></div>
           <p>{{ BC.strMeal }}</p>
         </RouterLink>
@@ -76,8 +76,14 @@ export default {
     width: 150px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     margin: 20px 0px;
+  }
+  
+  .ResCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .category .result div.ImageN img{

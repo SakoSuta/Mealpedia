@@ -29,7 +29,7 @@ export default {
     </form>
     <div class="gridd">
       <div v-for="BZ in ByZone" v-if="SearchZone" class="result">
-        <RouterLink :to="{ path: '/ID/' + BZ.idMeal }">
+        <RouterLink :to="{ path: '/ID/' + BZ.idMeal }" class="ResCenter">
           <div class="ImageZ"><img v-bind:src=BZ.strMealThumb alt="Image"></div>
           <p>{{ BZ.strMeal }}</p>
         </RouterLink>
@@ -78,6 +78,12 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 20px 0px;
+  }
+  
+  .ResCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .zone .result div.ImageZ img{
