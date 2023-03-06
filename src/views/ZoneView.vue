@@ -28,9 +28,11 @@ export default {
       <input type="text" v-model="SearchZone" @input="SearchingC" placeholder="Search by zone of the meal">
     </form>
     <div class="gridd">
-      <div v-for="BN in ByZone" v-if="SearchZone" class="result">
-        <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
-        <p>{{ BN.strMeal }}</p>
+      <div v-for="BZ in ByZone" v-if="SearchZone" class="result">
+        <RouterLink :to="{ path: '/ID/' + BZ.idMeal }">
+          <div class="ImageZ"><img v-bind:src=BZ.strMealThumb alt="Image"></div>
+          <p>{{ BZ.strMeal }}</p>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -78,7 +80,7 @@ export default {
     margin: 20px 0px;
   }
 
-  .zone .result div.ImageN img{
+  .zone .result div.ImageZ img{
     width: 100px;
   }
 }

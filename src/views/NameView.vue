@@ -1,4 +1,5 @@
 <script lang="ts">
+import { RouterLink} from 'vue-router'
 export default {
   name: 'NameView',
   methods: {
@@ -28,10 +29,14 @@ export default {
       <input type="text" v-model="SearchName" @input="Searching" placeholder="Search by name of the meal">
     </form>
     <div class="gridd">
+     
       <div v-for="BN in ByName" v-if="SearchName" class="result">
-        <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
-        <p>{{ BN.strMeal }}</p>
+        <RouterLink :to="{ path: '/ID/' + BN.idMeal }">
+          <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
+          <p>{{ BN.strMeal }}</p>
+        </RouterLink>
       </div>
+    
     </div>
   </div>
 </template>

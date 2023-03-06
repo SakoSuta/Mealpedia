@@ -29,8 +29,10 @@ export default {
     </form>
     <div class="gridd">
       <div v-for="BI in ByIngredient" v-if="SearchIngredient" class="result">
-        <div class="ImageN"><img v-bind:src=BI.strMealThumb alt="Image"></div>
-        <p>{{ BI.strMeal }}</p>
+        <RouterLink :to="{ path: '/ID/' + BI.idMeal }">
+          <div class="ImageN"><img v-bind:src=BI.strMealThumb alt="Image"></div>
+          <p>{{ BI.strMeal }}</p>
+        </RouterLink>
       </div>
     </div>
   </div>

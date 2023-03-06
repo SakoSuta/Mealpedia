@@ -33,6 +33,11 @@ const router = createRouter({
       path: '/zone',
       name: 'zone',
       component: () => import('../views/ZoneView.vue')
+    },
+    {
+      path: '/ID/:id(\\d+)',
+      name: 'id',
+      component: () => import('../views/IdView.vue')
     }
   ]
 })

@@ -28,9 +28,11 @@ export default {
       <input type="text" v-model="SearchCategory" @input="SearchingC" placeholder="Search by category of the meal">
     </form>
     <div class="gridd">
-      <div v-for="BN in ByCategory" v-if="SearchCategory" class="result">
-        <div class="ImageN"><img v-bind:src=BN.strMealThumb alt="Image"></div>
-        <p>{{ BN.strMeal }}</p>
+      <div v-for="BC in ByCategory" v-if="SearchCategory" class="result">
+        <RouterLink :to="{ path: '/ID/' + BC.idMeal }">
+          <div class="ImageN"><img v-bind:src=BC.strMealThumb alt="Image"></div>
+          <p>{{ BC.strMeal }}</p>
+        </RouterLink>
       </div>
     </div>
   </div>
